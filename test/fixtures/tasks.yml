@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  due_string: MyString
+  due_on: 2018-06-02 20:37:01
+  project_id: 1
+  created_by: 1
+  completed: false
+  completed_by: 1
+  priority: 1
+
+two:
+  name: MyString
+  due_string: MyString
+  due_on: 2018-06-02 20:37:01
+  project_id: 1
+  created_by: 1
+  completed: false
+  completed_by: 1
+  priority: 1
