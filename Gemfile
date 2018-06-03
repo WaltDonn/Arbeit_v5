@@ -28,10 +28,37 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Other gems (basec on Arbeitv4 & PATSv3)
+gem 'chronic'
+# replacing nested_form and foundation/font-awesome with materialize
+gem 'materialize-sass'
+gem 'simple_form'
+gem 'materialize-form'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'cancancan'
+gem 'validates_timeliness'
+gem 'time_date_helpers'
+gem 'carrierwave'
+gem 'will_paginate'
+gem 'vuejs-rails'
+
+# Gems used only in testing
+group :test do
+  gem 'factory_bot_rails', '4.8.2'
+  gem 'simplecov', '0.15.1'
+  gem 'shoulda', '3.5.0'
+  gem 'shoulda-matchers', '2.8.0'
+  gem 'minitest-rails', '3.0.0'
+  gem 'minitest-reporters', '1.1.19'
+  gem 'rails-controller-testing', '1.0.2'
+  gem 'cucumber-rails', require: false
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -39,6 +66,14 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request', '0.5.0'
+  gem 'hirb', '0.7.3'
+  gem 'faker', '1.8.7'
+  gem 'populator', '1.0.0'
+  gem 'database_cleaner'
+  gem 'launchy'
 end
 
 group :development do
