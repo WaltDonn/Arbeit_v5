@@ -37,7 +37,7 @@ class User < ApplicationRecord
   end
 
   # for use in authorizing with CanCan
-  ROLES = [['Administrator', :admin], ['Member', :member]].freeze
+  ROLES = [['Administrator', :admin], ['Member', :member]]
 
   def role?(authorized_role)
     return false if role.nil?
