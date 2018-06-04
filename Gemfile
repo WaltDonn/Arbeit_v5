@@ -44,13 +44,13 @@ gem 'jquery-ui-rails'
 gem 'cancancan'
 gem 'validates_timeliness'
 gem 'time_date_helpers'
-gem 'carrierwave'
+# gem 'carrierwave'
 gem 'will_paginate'
 gem 'vuejs-rails'
 
 # Gems used only in testing
 group :test do
-  gem 'factory_bot_rails', '4.8.2'
+  
   gem 'simplecov', '0.15.1'
   gem 'shoulda', '3.5.0'
   gem 'shoulda-matchers', '2.8.0'
@@ -72,6 +72,7 @@ group :development, :test do
   gem 'hirb', '0.7.3'
   gem 'faker', '1.8.7'
   gem 'populator', '1.0.0'
+  gem 'factory_bot_rails', '4.8.2'
   gem 'database_cleaner'
   gem 'launchy'
 end
