@@ -301,9 +301,9 @@ DEPENDENCIES
   materialize-form
   materialize-sass
   meta_request (= 0.5.0)
-  minitest (= 5.11.3)
-  minitest-rails (= 3.0.0)
-  minitest-reporters (= 1.1.19)
+  minitest
+  minitest-rails
+  minitest-reporters
   populator (= 1.0.0)
   puma (~> 3.7)
   rails (~> 5.1.6)

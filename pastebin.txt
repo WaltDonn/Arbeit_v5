@@ -1,0 +1,423 @@
+1) Error:
+ProjectTest#test_: Project should not allow end_date to be set to 2. :
+NameError: uninitialized constant Project::ArbeitHelpers
+    app/models/project.rb:2:in `<class:Project>'
+    app/models/project.rb:1:in `<top (required)>'
+
+  2) Failure:
+ProjectTest#test_: Project should have many assignments.  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:346]:
+Expected Project to have a has_many association called assignments (no association called assignments)
+
+  3) Failure:
+ProjectTest#test_: Project should have many tasks.  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:346]:
+Expected Project to have a has_many association called tasks (no association called tasks)
+
+  4) Error:
+ProjectTest#test_: Within context should have a scope to return all current projects. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/project_test.rb:36:in `block (2 levels) in <class:ProjectTest>'
+    test/models/project_test.rb:68:in `ensure in block in create_test_from_should_hash'
+    test/models/project_test.rb:68:in `block in create_test_from_should_hash'
+
+  5) Error:
+ProjectTest#test_: Within context should have a scope to return all past projects. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/project_test.rb:36:in `block (2 levels) in <class:ProjectTest>'
+    test/models/project_test.rb:72:in `ensure in block in create_test_from_should_hash'
+    test/models/project_test.rb:72:in `block in create_test_from_should_hash'
+
+  6) Error:
+ProjectTest#test_: Within context should make assignments inactive when project ends. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/project_test.rb:36:in `block (2 levels) in <class:ProjectTest>'
+    test/models/project_test.rb:114:in `ensure in block in create_test_from_should_hash'
+    test/models/project_test.rb:114:in `block in create_test_from_should_hash'
+
+  7) Failure:
+ProjectTest#test_: Project should require name to be set.  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:346]:
+Expected errors to include "can't be blank" when name is set to nil,
+got no errors
+
+  8) Failure:
+ProjectTest#test_: Project should belong to domain.  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:346]:
+Expected Project to have a belongs_to association called domain (no association called domain)
+
+  9) Failure:
+ProjectTest#test_: Project should not allow start_date to be set to 2.  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:360]:
+Expected errors when start_date is set to 2,
+got no errors
+
+ 10) Error:
+ProjectTest#test_: Within context should verify that the project's domain is active in the system. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/project_test.rb:36:in `block (2 levels) in <class:ProjectTest>'
+    test/models/project_test.rb:85:in `ensure in block in create_test_from_should_hash'
+    test/models/project_test.rb:85:in `block in create_test_from_should_hash'
+
+ 11) Error:
+ProjectTest#test_: Within context should have a scope to return all projects with a similar name. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/project_test.rb:36:in `block (2 levels) in <class:ProjectTest>'
+    test/models/project_test.rb:76:in `ensure in block in create_test_from_should_hash'
+    test/models/project_test.rb:76:in `block in create_test_from_should_hash'
+
+ 12) Failure:
+ProjectTest#test_: Project should belong to manager.  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:346]:
+Expected Project to have a belongs_to association called manager (no association called manager)
+
+ 13) Error:
+ProjectTest#test_: Within context should correctly assess if a project is destroyable. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/project_test.rb:36:in `block (2 levels) in <class:ProjectTest>'
+    test/models/project_test.rb:90:in `ensure in block in create_test_from_should_hash'
+    test/models/project_test.rb:90:in `block in create_test_from_should_hash'
+
+ 14) Error:
+ProjectTest#test_: Within context should have working is_active? method. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/project_test.rb:36:in `block (2 levels) in <class:ProjectTest>'
+    test/models/project_test.rb:57:in `ensure in block in create_test_from_should_hash'
+    test/models/project_test.rb:57:in `block in create_test_from_should_hash'
+
+ 15) Failure:
+ProjectTest#test_: Project should not allow end_date to be set to 3.14159.  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:360]:
+Expected errors when end_date is set to 3.14159,
+got no errors
+
+ 16) Failure:
+ProjectTest#test_: Project should not allow start_date to be set to "bad".  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:360]:
+Expected errors when start_date is set to "bad",
+got no errors
+
+ 17) Failure:
+ProjectTest#test_: Project should not allow start_date to be set to 3.14159.  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:360]:
+Expected errors when start_date is set to 3.14159,
+got no errors
+
+ 18) Error:
+ProjectTest#test_: Within context should remove incomplete tasks when project ends. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/project_test.rb:36:in `block (2 levels) in <class:ProjectTest>'
+    test/models/project_test.rb:104:in `ensure in block in create_test_from_should_hash'
+    test/models/project_test.rb:104:in `block in create_test_from_should_hash'
+
+ 19) Failure:
+ProjectTest#test_: Project should accepts_nested_attributes_for :tasks allow_destroy => true.  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:346]:
+Expected Project to accept nested attributes for tasks (is not declared)
+
+ 20) Error:
+ProjectTest#test_: Within context should have a scope to alphabetize projects. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/project_test.rb:36:in `block (2 levels) in <class:ProjectTest>'
+    test/models/project_test.rb:64:in `ensure in block in create_test_from_should_hash'
+    test/models/project_test.rb:64:in `block in create_test_from_should_hash'
+
+ 21) Error:
+ProjectTest#test_: Within context should check to make sure the end date is after the start date. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/project_test.rb:36:in `block (2 levels) in <class:ProjectTest>'
+    test/models/project_test.rb:80:in `ensure in block in create_test_from_should_hash'
+    test/models/project_test.rb:80:in `block in create_test_from_should_hash'
+
+ 22) Error:
+ProjectTest#test_: Within context should set the end date to today when project ends. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/project_test.rb:36:in `block (2 levels) in <class:ProjectTest>'
+    test/models/project_test.rb:98:in `ensure in block in create_test_from_should_hash'
+    test/models/project_test.rb:98:in `block in create_test_from_should_hash'
+
+ 23) Failure:
+ProjectTest#test_: Project should have many users through assignments.  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:346]:
+Expected Project to have a has_many association called users (no association called users)
+
+ 24) Failure:
+ProjectTest#test_: Project should not allow end_date to be set to "bad".  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:360]:
+Expected errors when end_date is set to "bad",
+got no errors
+
+ 25) Error:
+UserTest#test_: Within context should require a password for new users. :
+NameError: uninitialized constant UserTest::FactoryGirl
+    test/models/user_test.rb:74:in `block (2 levels) in <class:UserTest>'
+    test/models/user_test.rb:86:in `instance_exec'
+    test/models/user_test.rb:86:in `block in create_test_from_should_hash'
+
+ 26) Error:
+UserTest#test_: User should have many completed_tasks. :
+ArgumentError: You tried to define a scope named "last" on the model "Task", but Active Record already defined a class method with the same name.
+    app/models/task.rb:20:in `<class:Task>'
+    app/models/task.rb:1:in `<top (required)>'
+
+ 27) Error:
+UserTest#test_: User should have many projects through assignments. :
+NoMethodError: undefined method `class_name' for nil:NilClass
+Did you mean?  class_eval
+    
+
+ 28) Error:
+UserTest#test_: Within context should require users to have unique emails. :
+NameError: uninitialized constant UserTest::FactoryGirl
+    test/models/user_test.rb:69:in `block (2 levels) in <class:UserTest>'
+    test/models/user_test.rb:81:in `instance_exec'
+    test/models/user_test.rb:81:in `block in create_test_from_should_hash'
+
+ 29) Error:
+UserTest#test_: Within context should require passwords to be at least four characters. :
+NameError: uninitialized constant UserTest::FactoryGirl
+    test/models/user_test.rb:86:in `block (2 levels) in <class:UserTest>'
+    test/models/user_test.rb:98:in `instance_exec'
+    test/models/user_test.rb:98:in `block in create_test_from_should_hash'
+
+ 30) Error:
+UserTest#test_: Within context should require passwords to be confirmed and matching. :
+NameError: uninitialized constant UserTest::FactoryGirl
+    test/models/user_test.rb:79:in `block (2 levels) in <class:UserTest>'
+    test/models/user_test.rb:91:in `instance_exec'
+    test/models/user_test.rb:91:in `block in create_test_from_should_hash'
+
+ 31) Error:
+TaskTest#test_: Within context should have a scope to order tasks chronologically. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/task_test.rb:32:in `block (2 levels) in <class:TaskTest>'
+    test/models/task_test.rb:61:in `ensure in block in create_test_from_should_hash'
+    test/models/task_test.rb:61:in `block in create_test_from_should_hash'
+
+ 32) Error:
+TaskTest#test_: Within context should have a scope to return tasks that are upcoming. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/task_test.rb:32:in `block (2 levels) in <class:TaskTest>'
+    test/models/task_test.rb:69:in `ensure in block in create_test_from_should_hash'
+    test/models/task_test.rb:69:in `block in create_test_from_should_hash'
+
+ 33) Error:
+TaskTest#test_: Within context should have a scope to order tasks alphabetically by name. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/task_test.rb:32:in `block (2 levels) in <class:TaskTest>'
+    test/models/task_test.rb:85:in `ensure in block in create_test_from_should_hash'
+    test/models/task_test.rb:85:in `block in create_test_from_should_hash'
+
+ 34) Error:
+TaskTest#test_: Within context should have a scope to order tasks by priority. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/task_test.rb:32:in `block (2 levels) in <class:TaskTest>'
+    test/models/task_test.rb:81:in `ensure in block in create_test_from_should_hash'
+    test/models/task_test.rb:81:in `block in create_test_from_should_hash'
+
+ 35) Failure:
+TaskTest#test_: Task should not allow priority to be set to nil.  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:360]:
+Expected errors when priority is set to nil,
+got no errors
+
+ 36) Error:
+TaskTest#test_: Within context should have a scope to return tasks that are completed. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/task_test.rb:32:in `block (2 levels) in <class:TaskTest>'
+    test/models/task_test.rb:73:in `ensure in block in create_test_from_should_hash'
+    test/models/task_test.rb:73:in `block in create_test_from_should_hash'
+
+ 37) Error:
+TaskTest#test_: Within context should have a scope to order tasks chronologically by completion date. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/task_test.rb:32:in `block (2 levels) in <class:TaskTest>'
+    test/models/task_test.rb:77:in `ensure in block in create_test_from_should_hash'
+    test/models/task_test.rb:77:in `block in create_test_from_should_hash'
+
+ 38) Error:
+TaskTest#test_: Within context should have a scope to return the last X tasks. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/task_test.rb:32:in `block (2 levels) in <class:TaskTest>'
+    test/models/task_test.rb:89:in `ensure in block in create_test_from_should_hash'
+    test/models/task_test.rb:89:in `block in create_test_from_should_hash'
+
+ 39) Failure:
+TaskTest#test_: Task should require name to be set.  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:346]:
+Expected errors to include "can't be blank" when name is set to nil,
+got no errors
+
+ 40) Error:
+TaskTest#test_: Within context should have a scope to return all tasks for a given project. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/task_test.rb:32:in `block (2 levels) in <class:TaskTest>'
+    test/models/task_test.rb:101:in `ensure in block in create_test_from_should_hash'
+    test/models/task_test.rb:101:in `block in create_test_from_should_hash'
+
+ 41) Error:
+TaskTest#test_: Within context should be able to process the due string into datetime or return error. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/task_test.rb:32:in `block (2 levels) in <class:TaskTest>'
+    test/models/task_test.rb:117:in `ensure in block in create_test_from_should_hash'
+    test/models/task_test.rb:117:in `block in create_test_from_should_hash'
+
+ 42) Error:
+TaskTest#test_: Within context should have a scope to return all tasks for a given creator. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/task_test.rb:32:in `block (2 levels) in <class:TaskTest>'
+    test/models/task_test.rb:105:in `ensure in block in create_test_from_should_hash'
+    test/models/task_test.rb:105:in `block in create_test_from_should_hash'
+
+ 43) Error:
+TaskTest#test_: Within context should have a scope to return all high priority tasks. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/task_test.rb:32:in `block (2 levels) in <class:TaskTest>'
+    test/models/task_test.rb:93:in `ensure in block in create_test_from_should_hash'
+    test/models/task_test.rb:93:in `block in create_test_from_should_hash'
+
+ 44) Error:
+TaskTest#test_: Within context should have a scope to return all medium priority tasks. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/task_test.rb:32:in `block (2 levels) in <class:TaskTest>'
+    test/models/task_test.rb:97:in `ensure in block in create_test_from_should_hash'
+    test/models/task_test.rb:97:in `block in create_test_from_should_hash'
+
+ 45) Failure:
+TaskTest#test_: Task should not allow priority to be set to 0.  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:360]:
+Expected errors when priority is set to 0,
+got no errors
+
+ 46) Error:
+TaskTest#test_: Within context should have a scope to return all tasks for a given completer. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/task_test.rb:32:in `block (2 levels) in <class:TaskTest>'
+    test/models/task_test.rb:111:in `ensure in block in create_test_from_should_hash'
+    test/models/task_test.rb:111:in `block in create_test_from_should_hash'
+
+ 47) Error:
+TaskTest#test_: Task should have many assignments through project. :
+NoMethodError: undefined method `class_name' for nil:NilClass
+Did you mean?  class_eval
+    
+
+ 48) Error:
+TaskTest#test_: Within context should have a scope to return tasks that are overdue. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/task_test.rb:32:in `block (2 levels) in <class:TaskTest>'
+    test/models/task_test.rb:65:in `ensure in block in create_test_from_should_hash'
+    test/models/task_test.rb:65:in `block in create_test_from_should_hash'
+
+ 49) Failure:
+TaskTest#test_: Task should not allow priority to be set to "bad".  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:360]:
+Expected errors when priority is set to "bad",
+got no errors
+
+ 50) Error:
+TaskTest#test_: Within context should have working status method. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/task_test.rb:32:in `block (2 levels) in <class:TaskTest>'
+    test/models/task_test.rb:55:in `ensure in block in create_test_from_should_hash'
+    test/models/task_test.rb:55:in `block in create_test_from_should_hash'
+
+ 51) Error:
+AssignmentTest#test_: Within context should have a scope to find assignments for a given project. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/assignment_test.rb:19:in `block (2 levels) in <class:AssignmentTest>'
+    test/models/assignment_test.rb:49:in `ensure in block in create_test_from_should_hash'
+    test/models/assignment_test.rb:49:in `block in create_test_from_should_hash'
+
+ 52) Failure:
+AssignmentTest#test_: Assignment should belong to user.  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:346]:
+Expected Assignment to have a belongs_to association called user (no association called user)
+
+ 53) Error:
+AssignmentTest#test_: Within context should have a scope to find assignments for a given user. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/assignment_test.rb:19:in `block (2 levels) in <class:AssignmentTest>'
+    test/models/assignment_test.rb:54:in `ensure in block in create_test_from_should_hash'
+    test/models/assignment_test.rb:54:in `block in create_test_from_should_hash'
+
+ 54) Error:
+AssignmentTest#test_: Within context should have a scope to order assignments by project. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/assignment_test.rb:19:in `block (2 levels) in <class:AssignmentTest>'
+    test/models/assignment_test.rb:64:in `ensure in block in create_test_from_should_hash'
+    test/models/assignment_test.rb:64:in `block in create_test_from_should_hash'
+
+ 55) Error:
+AssignmentTest#test_: Within context should have a scope to select only inactive assignments. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/assignment_test.rb:19:in `block (2 levels) in <class:AssignmentTest>'
+    test/models/assignment_test.rb:45:in `ensure in block in create_test_from_should_hash'
+    test/models/assignment_test.rb:45:in `block in create_test_from_should_hash'
+
+ 56) Error:
+AssignmentTest#test_: Within context should have a method to make an inactive assignment active. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/assignment_test.rb:19:in `block (2 levels) in <class:AssignmentTest>'
+    test/models/assignment_test.rb:84:in `ensure in block in create_test_from_should_hash'
+    test/models/assignment_test.rb:84:in `block in create_test_from_should_hash'
+
+ 57) Error:
+AssignmentTest#test_: Within context should not allow assignments for inactive users. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/assignment_test.rb:19:in `block (2 levels) in <class:AssignmentTest>'
+    test/models/assignment_test.rb:69:in `ensure in block in create_test_from_should_hash'
+    test/models/assignment_test.rb:69:in `block in create_test_from_should_hash'
+
+ 58) Error:
+AssignmentTest#test_: Within context should not allow assignments to projects that are not current. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/assignment_test.rb:19:in `block (2 levels) in <class:AssignmentTest>'
+    test/models/assignment_test.rb:74:in `ensure in block in create_test_from_should_hash'
+    test/models/assignment_test.rb:74:in `block in create_test_from_should_hash'
+
+ 59) Error:
+AssignmentTest#test_: Within context should have a scope to order assignments by user. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/assignment_test.rb:19:in `block (2 levels) in <class:AssignmentTest>'
+    test/models/assignment_test.rb:59:in `ensure in block in create_test_from_should_hash'
+    test/models/assignment_test.rb:59:in `block in create_test_from_should_hash'
+
+ 60) Error:
+AssignmentTest#test_: Within context should have a scope to select only active assignments. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/assignment_test.rb:19:in `block (2 levels) in <class:AssignmentTest>'
+    test/models/assignment_test.rb:41:in `ensure in block in create_test_from_should_hash'
+    test/models/assignment_test.rb:41:in `block in create_test_from_should_hash'
+
+ 61) Failure:
+AssignmentTest#test_: Assignment should belong to project.  [/Users/Svayam/.rvm/gems/ruby-2.4.2/gems/shoulda-context-1.2.2/lib/shoulda/context/context.rb:346]:
+Expected Assignment to have a belongs_to association called project (no association called project)
+
+ 62) Error:
+AssignmentTest#test_: Within context should have a method to make an assignment inactive. :
+NoMethodError: undefined method `destroy' for nil:NilClass
+    test/sets/projects.rb:12:in `destroy_projects'
+    test/models/assignment_test.rb:19:in `block (2 levels) in <class:AssignmentTest>'
+    test/models/assignment_test.rb:79:in `ensure in block in create_test_from_should_hash'
+    test/models/assignment_test.rb:79:in `block in create_test_from_should_hash'
+
+100 runs, 59 assertions, 18 failures, 44 errors, 0 skips

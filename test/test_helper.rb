@@ -3,7 +3,7 @@ SimpleCov.start 'rails'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
-require 'turn/autorun'
+# require 'turn/autorun'
 require 'contexts'
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
@@ -20,4 +20,4 @@ class ActiveSupport::TestCase
 end
 
 # Formatting test output a little nicer
-Turn.config.format = :outline
+# Turn.config.format = :outline
