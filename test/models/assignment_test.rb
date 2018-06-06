@@ -49,12 +49,12 @@ class AssignmentTest < ActiveSupport::TestCase
     end
     
     should "not allow assignments for inactive users" do
-      @bad_assignment = FactoryGirl.build(:assignment, project: @arbeit, user: @ned)
+      @bad_assignment = FactoryBot.build(:assignment, project: @arbeit, user: @ned)
       deny @bad_assignment.valid?
     end
     
     should "not allow assignments to projects that are not current" do
-      @bad_assignment = FactoryGirl.build(:assignment, project: @choretracker, user: @ed)
+      @bad_assignment = FactoryBot.build(:assignment, project: @choretracker, user: @ed)
       deny @bad_assignment.valid?
     end
 

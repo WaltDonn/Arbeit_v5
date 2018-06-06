@@ -35,7 +35,7 @@ class Project < ApplicationRecord
       @destroyable = false
       throw(:abort)
     # else (?)
-    # --- Is there any additional action to be carried out here? ---
+      # --- Is there any additional action to be carried out here? ---
     end
   end
   after_rollback :end_project_now
@@ -45,14 +45,15 @@ class Project < ApplicationRecord
     set_all_assignments_to_inactive
     set_project_end_date_to_today
   end
-  
+
   # Other methods
   def is_active?
     return true if end_date.nil?
     (start_date <= Date.today) && (end_date > Date.today)
   end
-  
+
   private
+
   def is_destroyable
     unless no_completed_tasks?
       errors.add(:base, "Project cannot be deleted as it has completed tasks associated with it.")

@@ -1,13 +1,16 @@
 class Assignment < ApplicationRecord
   include ArbeitHelpers
-
+  include AppHelpers::Activeable::InstanceMethods
+  extend AppHelpers::Activeable::ClassMethods
   # Relationships
   belongs_to :user
   belongs_to :project
   
   # Scopes
-  scope :active, -> { where('assignments.active = ?', true) }
-  scope :inactive, -> { where('assignments.active = ?', false) }
+  # the 2 lines below now replaced with AppHelpers::Activeable::ClassMethods
+  # (according to PATSv3 pet.rb)
+  # scope :active, -> { where('assignments.active = ?', true) }
+  # scope :inactive, -> { where('assignments.active = ?', false) }
   scope :for_project, ->(project_id) { where('project_id = ?', project_id) }
   scope :for_user,    ->(user_id) { where('user_id = ?', user_id) }
   scope :by_user,     -> { joins(:user).order('users.last_name, users.first_name') }

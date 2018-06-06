@@ -66,24 +66,24 @@ class UserTest < ActiveSupport::TestCase
     end 
     
     should "require users to have unique emails" do
-      bad_user = FactoryGirl.build(:user, first_name: "Sed", email: "fred@example.com")
+      bad_user = FactoryBot.build(:user, first_name: "Sed", email: "fred@example.com")
       deny bad_user.valid?
     end
     
     should "require a password for new users" do
-      bad_user = FactoryGirl.build(:user, first_name: "Sed", password: nil)
+      bad_user = FactoryBot.build(:user, first_name: "Sed", password: nil)
       deny bad_user.valid?
     end
     
     should "require passwords to be confirmed and matching" do
-      bad_user_1 = FactoryGirl.build(:user, first_name: "Sed", password: "secret", password_confirmation: nil)
+      bad_user_1 = FactoryBot.build(:user, first_name: "Sed", password: "secret", password_confirmation: nil)
       deny bad_user_1.valid?
-      bad_user_2 = FactoryGirl.build(:user, first_name: "Sed", password: "secret", password_confirmation: "sauce")
+      bad_user_2 = FactoryBot.build(:user, first_name: "Sed", password: "secret", password_confirmation: "sauce")
       deny bad_user_2.valid?
     end
     
     should "require passwords to be at least four characters" do
-      bad_user = FactoryGirl.build(:user, first_name: "Sed", password: "no")
+      bad_user = FactoryBot.build(:user, first_name: "Sed", password: "no")
       deny bad_user.valid?
     end
   end

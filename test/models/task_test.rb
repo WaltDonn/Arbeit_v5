@@ -97,9 +97,9 @@ class TaskTest < ActiveSupport::TestCase
     end
     
     should "be able to process the due string into datetime or return error" do
-      good_task = FactoryGirl.build(:task, name: 'Storyboarding', project: @arbeit, due_on: 1.day.from_now, due_string: "tomorrow", creator: @fred, completer: nil, completed: false)
+      good_task = FactoryBot.build(:task, name: 'Storyboarding', project: @arbeit, due_on: 1.day.from_now, due_string: "tomorrow", creator: @fred, completer: nil, completed: false)
       assert good_task.valid?
-      bad_task = FactoryGirl.build(:task, name: 'Authenication', project: @arbeit, due_on: 3.days.from_now, due_string: "fred is dead", creator: @ted, completer: nil, completed: false)
+      bad_task = FactoryBot.build(:task, name: 'Authenication', project: @arbeit, due_on: 3.days.from_now, due_string: "fred is dead", creator: @ted, completer: nil, completed: false)
       deny bad_task.valid?
     end
   end

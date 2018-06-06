@@ -148,7 +148,7 @@ got no errors
 
  25) Error:
 UserTest#test_: Within context should require a password for new users. :
-NameError: uninitialized constant UserTest::FactoryGirl
+NameError: uninitialized constant UserTest::FactoryBot
     test/models/user_test.rb:74:in `block (2 levels) in <class:UserTest>'
     test/models/user_test.rb:86:in `instance_exec'
     test/models/user_test.rb:86:in `block in create_test_from_should_hash'
@@ -167,21 +167,21 @@ Did you mean?  class_eval
 
  28) Error:
 UserTest#test_: Within context should require users to have unique emails. :
-NameError: uninitialized constant UserTest::FactoryGirl
+NameError: uninitialized constant UserTest::FactoryBot
     test/models/user_test.rb:69:in `block (2 levels) in <class:UserTest>'
     test/models/user_test.rb:81:in `instance_exec'
     test/models/user_test.rb:81:in `block in create_test_from_should_hash'
 
  29) Error:
 UserTest#test_: Within context should require passwords to be at least four characters. :
-NameError: uninitialized constant UserTest::FactoryGirl
+NameError: uninitialized constant UserTest::FactoryBot
     test/models/user_test.rb:86:in `block (2 levels) in <class:UserTest>'
     test/models/user_test.rb:98:in `instance_exec'
     test/models/user_test.rb:98:in `block in create_test_from_should_hash'
 
  30) Error:
 UserTest#test_: Within context should require passwords to be confirmed and matching. :
-NameError: uninitialized constant UserTest::FactoryGirl
+NameError: uninitialized constant UserTest::FactoryBot
     test/models/user_test.rb:79:in `block (2 levels) in <class:UserTest>'
     test/models/user_test.rb:91:in `instance_exec'
     test/models/user_test.rb:91:in `block in create_test_from_should_hash'

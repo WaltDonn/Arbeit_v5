@@ -60,12 +60,12 @@ class ProjectTest < ActiveSupport::TestCase
     end
     
     should "check to make sure the end date is after the start date" do
-      @bad_project = FactoryGirl.build(:project, name: 'BogusProject', domain: @software, manager: @ed, start_date: 9.days.ago.to_date, end_date: 10.days.ago.to_date)
+      @bad_project = FactoryBot.build(:project, name: 'BogusProject', domain: @software, manager: @ed, start_date: 9.days.ago.to_date, end_date: 10.days.ago.to_date)
       deny @bad_project.valid?
     end 
     
     should "verify that the project's domain is active in the system" do
-      @bad_project = FactoryGirl.build(:project, name: 'BogusProject', domain: @poetry, manager: @ed, start_date: Date.today, end_date: nil)
+      @bad_project = FactoryBot.build(:project, name: 'BogusProject', domain: @poetry, manager: @ed, start_date: Date.today, end_date: nil)
       deny @bad_project.valid?
     end 
 
