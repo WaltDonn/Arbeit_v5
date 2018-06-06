@@ -31,9 +31,9 @@ class ProjectTest < ActiveSupport::TestCase
       create_projects
     end
     teardown do
-      destroy_domains
-      destroy_users
       destroy_projects
+      destroy_users
+      destroy_domains
     end
     
     should "have working is_active? method" do 
@@ -72,7 +72,8 @@ class ProjectTest < ActiveSupport::TestCase
     should "correctly assess if a project is destroyable" do
       create_assignments
       create_tasks
-      deny @bookmanager.is_destroyable?, "#{@bookmanager.tasks.completed.size}"
+      deny @bookmanager.no_completed_tasks?, "#{@bookmanager.tasks.completed.size}"
+      # no_completed_tasks replaces is_destroyable
       destroy_tasks
       destroy_assignments
     end

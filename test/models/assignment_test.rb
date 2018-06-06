@@ -14,10 +14,10 @@ class AssignmentTest < ActiveSupport::TestCase
       create_assignments
     end
     teardown do
-      destroy_domains
-      destroy_users
-      destroy_projects
       destroy_assignments
+      destroy_projects
+      destroy_users
+      destroy_domains
     end
     
     should "have a scope to select only active assignments" do

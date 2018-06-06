@@ -2,7 +2,7 @@ class Task < ApplicationRecord
   # Relationships
   belongs_to :project
   belongs_to :creator, class_name: "User", foreign_key: "created_by"
-  belongs_to :completer, class_name: "User", foreign_key: "completed_by"
+  belongs_to :completer, class_name: "User", foreign_key: "completed_by", optional: true
   has_many :assignments, through: :project
 
   # Delegations
@@ -16,7 +16,7 @@ class Task < ApplicationRecord
   scope :chronological, -> { order("due_on") }
   scope :by_completion_date, -> { order("updated_at DESC") }
   scope :by_priority,   -> { order("priority, due_on") }
-  scope :last,          ->(num) { limit(num) }
+  scope :last_x,          ->(num) { limit(num) }
   scope :by_name,       -> { order("name ASC") }
   scope :in_next_days,  ->(days) { where("due_on between ? and ?", Date.today.to_time, (Date.today+days).to_time) }
   scope :upcoming,      -> { where("due_on > ?", Time.now) }

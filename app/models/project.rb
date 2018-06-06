@@ -52,16 +52,16 @@ class Project < ApplicationRecord
     (start_date <= Date.today) && (end_date > Date.today)
   end
 
+  def no_completed_tasks?
+    self.tasks.completed.empty?
+  end
+
   private
 
-  def is_destroyable
+  def check_is_destroyable
     unless no_completed_tasks?
       errors.add(:base, "Project cannot be deleted as it has completed tasks associated with it.")
     end
-  end
-
-  def no_completed_tasks?
-    self.tasks.completed.empty?
   end
 
   def domain_is_active_in_system
@@ -69,7 +69,7 @@ class Project < ApplicationRecord
   end
 
   def remove_incomplete_tasks
-    self.tasks.incomplete.each{ |t| t.destroy }
+    self.tasks.incomplete.each{ |t| t.delete }
   end
 
   def set_all_assignments_to_inactive

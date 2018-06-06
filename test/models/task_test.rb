@@ -27,11 +27,11 @@ class TaskTest < ActiveSupport::TestCase
       create_tasks
     end
     teardown do
-      destroy_domains
-      destroy_users
-      destroy_projects
-      destroy_assignments
       destroy_tasks
+      destroy_assignments
+      destroy_projects
+      destroy_users
+      destroy_domains
     end
     
     should "have working status method" do 
