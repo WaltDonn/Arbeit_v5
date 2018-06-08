@@ -34,19 +34,19 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 # Other gems (basec on Arbeitv4 & PATSv3)
-gem 'chronic'
+gem 'chronic', '0.10.2'
+gem 'jquery-rails', '4.3.1'
+gem 'jquery-ui-rails', '6.0.1'
+gem 'cancancan', '2.1.2'
+gem 'validates_timeliness', '4.0.2'
+gem 'time_date_helpers', '0.0.2'
+gem 'will_paginate', '3.1.6'
+gem 'vuejs-rails', '2.5.13'
 # replacing nested_form and foundation/font-awesome with materialize
-gem 'materialize-sass'
-gem 'simple_form'
-gem 'materialize-form'
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'cancancan'
-gem 'validates_timeliness'
-gem 'time_date_helpers'
-# gem 'carrierwave'
-gem 'will_paginate'
-gem 'vuejs-rails'
+gem 'materialize-sass', '0.100.2'
+gem 'simple_form', '3.5.0'
+gem 'materialize-form', '1.0.8'
+
 
 # Gems used only in testing
 group :test do
