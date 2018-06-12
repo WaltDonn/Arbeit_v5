@@ -86,6 +86,9 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  # Rotate logs daily to keep file sizes down
+  config.logger = Logger.new("log/#{Rails.env}.log", "daily")
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
