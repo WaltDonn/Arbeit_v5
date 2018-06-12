@@ -15,14 +15,14 @@ ActiveRecord::Schema.define(version: 20180603003749) do
   create_table "assignments", force: :cascade do |t|
     t.integer "project_id"
     t.integer "user_id"
-    t.boolean "active"
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "domains", force: :cascade do |t|
     t.string "name"
-    t.boolean "active"
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20180603003749) do
     t.string "email"
     t.string "password_digest"
     t.string "role"
-    t.boolean "active"
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
