@@ -5,6 +5,13 @@
       <p>&nbsp;</p>
       <%= render partial: "#{secondary}" %>
     <% end %>
+
+    <!-- TODO: hacky for displaying third card without changing the other show pages -->
+    <% if !(defined?(third_card)).nil? %>
+      <p>&nbsp;</p>
+      <%= render partial: "#{third_card}" %>
+    <% end %>
+    
   </div>
   <div class="col s4">
     <%= render partial: "#{sidebar}" unless sidebar.blank? %>

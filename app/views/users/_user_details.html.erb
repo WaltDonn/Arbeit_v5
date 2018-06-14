@@ -6,6 +6,14 @@
   <b>Email</b>: <%= mail_to @user.email, @user.email, encode: "javascript" %>
 </p>
 
+<p>
+  <b>Role</b>: <%= @user.role.capitalize %>
+</p>
+
+<p>
+  <b>Active</b>: <%= @user.active ? "Yes" : "No" %>
+</p>
+<br/>
 <p><b>Current Assignments:</b>
   <% if @user_assignments.empty? %>
     &nbsp;&nbsp;<em>No assignments at this time</em>
@@ -19,11 +27,4 @@
 </p>
 
 
-<p>
-  <b>Role</b>: <%= @user.role.capitalize %>
-</p>
-
-<p>
-  <b>Active</b>: <%= @user.active ? "Yes" : "No" %>
-</p>
 </div></div>
