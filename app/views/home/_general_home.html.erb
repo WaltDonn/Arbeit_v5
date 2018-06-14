@@ -1,7 +1,9 @@
-<h2>Welcome To Arbeit</h2>
+<h3>Welcome To Arbeit</h3>
 <br/>
 <div class="row">
-	<div class="small-7 columns">
+	<div class="col s7">
+		<div class="card">
+			<div class="card-content">
 		<p>
 			<em><strong>Guten Tag!</strong></em>  Arbeit is a web app that
 			allows users to create and track projects and their associated
@@ -12,17 +14,19 @@
 			<%= link_to "chronic", "https://github.com/mojombo/chronic" %>.
 		</p>
 	</div>
-	<div class="small-1 columns">
-		&nbsp;
-	</div>
-	<div class="small-4 columns">
-		<div class="panel clearfix">
-			<h3>Access to Arbeit:</h3>
-			<p>If you are a registered user,
-			<%= link_to "click here to login", login_path %>. Otherwise, you
+</div>
+</div>
+	<div class="col s4 offset-s1">
+		<div class="card">
+			<div class="card-content">
+				<span class="card-title">
+					Access to Arbeit</span>
+
+			<p>If you are a registered user, click
+			<%= link_to "here", login_path %> to login . Otherwise, you
 			are just SOL <em>unless</em> you can guess our secret sign-up page.</p>
 		</div>
 	</div>
 </div>
-
-
+</div>
+</div>
