@@ -91,7 +91,7 @@ class TasksController < ApplicationController
     @project_tasks = @task.project.tasks.chronological.by_priority.paginate(page: params[:page]).per_page(10)
   end
 
-  
+
   # ===================================
   # Two new methods to handle changing completed field
   def complete
@@ -133,7 +133,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      convert_due_on
-      params.require(:task).permit(:name, :due_on, :due_string, :project_id, :completed, :completed_by, :created_by, :priority)  
+      #convert_due_on
+      params.require(:task).permit(:name, :due_on, :due_string, :project_id, :completed, :completed_by, :created_by, :priority)
     end
 end

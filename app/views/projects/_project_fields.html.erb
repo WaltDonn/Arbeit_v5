@@ -4,14 +4,14 @@
 <%= f.input :manager_id, collection: User.active.alphabetical, include_blank: true, input_html: {
     class: "avg"} %>
 
+<%= f.input :domain_id, collection: Domain.active.alphabetical, include_blank: true, input_html: {
+    class: "avg"} %>
+
 <%= f.input :start_date, label: 'Start Date', input_html: {
     class: "avg datepicker"} %>
 
 <%= f.input :end_date, label: 'End Date', input_html: {
     class: "avg datepicker"} %>
-
-<%= f.input :domain_id, collection: Domain.active.alphabetical, include_blank: true, input_html: {
-    class: "avg"} %>
 
 <%= f.input :description, input_html: {
     class: "avg", rows: 4 } %>

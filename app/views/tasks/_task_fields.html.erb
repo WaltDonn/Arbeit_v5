@@ -1,5 +1,9 @@
 <%#= f.link_to_remove(image_tag("icons/close.gif", :border => 0)) %>
 <%= f.input :name, label: "Task", input_html: { class: "tasks" } %>
-<%= f.input :due_string, label: "Due", input_html: { class: "tasks" } %>
+<%#= f.input :due_string, label: "Due", input_html: { class: "tasks" } %>
+<%= f.input :project_id, collection: Project.current.alphabetical, input_html: {
+    class: "avg"} %>
 <%= f.input :priority, label: "Priority", collection: Task::PRIORITY_LIST, prompt: "Choose ...", class: "rightspace" %>
+<%= f.input :due_string, as: :date, label: 'Due', input_html: {
+    class: "avg datepicker"} %>
 <%= f.input :created_by, as: :hidden, input_html: { value: current_user.id } %>
