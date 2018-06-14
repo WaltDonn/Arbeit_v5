@@ -1,12 +1,16 @@
-
 <% unless @created_tasks.empty? %>
 
+<div class="card">
+	<div class="card-content">
+		<span class="card-title">
+		<%= pluralize @completed_tasks.size, 'Task' %> Completed</span>
+
 <div class="well">
-	<h3><%= pluralize @completed_tasks.size, 'Task' %> Completed</h3>
 	<ul>
 		<% @completed_tasks.each do |task| %>
 			<li><%= link_to task.name, task_path(task) %>&nbsp;&nbsp;(<%= task.project.name %> - <%= task.updated_at.strftime("%m/%d") %>)</li>
 		<% end %>
 	</ul>
 </div>
+</div></div>
 <% end %>

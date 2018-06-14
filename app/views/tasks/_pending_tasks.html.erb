@@ -1,8 +1,8 @@
-<h3>Pending Tasks
-  <%= link_to(new_task_path) do %>
-    &nbsp;&nbsp;<i class="fa fa-plus"></i>
-  <% end %>
-</h3>
+
+<div class="card">
+	<div class="card-content">
+		<span class="card-title">
+		Pending Tasks</span>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -34,3 +34,4 @@
 
 <p>&nbsp;</p>
 <%= render :partial => "partials/add_new_object", locals: {model_name: 'task'} %>
+</div></div>

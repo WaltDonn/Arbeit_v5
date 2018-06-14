@@ -31,25 +31,14 @@
 
 
 <nav id="nav">
-  <div class="container">
-    <ul class="left hide-on-med-and-down">
-      <li>
+  <div class="nav-wrapper">
+    <%= link_to "Arbeit", home_path, class:"brand-logo" %>
+    <ul class="right hide-on-med-and-down">
+      <!-- <li>
         <%= link_to "Dashboard", home_path %>
-      </li>
+      </li> -->
 
-      <!-- options for projects -->
-      <li>
-        <a class="dropdown-button" href="#" data-activates="projects_dropdown">Projects
-          <i class="material-icons right">arrow_drop_down</i>
-        </a>
-      </li>
 
-      <!-- options for tasks -->
-      <li>
-        <a class="dropdown-button" href="#" data-activates="tasks_dropdown">Tasks
-          <i class="material-icons right">arrow_drop_down</i>
-        </a>
-      </li>
 
       <!-- ADMIN ONLY OPTIONS -->
       <% if logged_in? && current_user.role == "admin" %>
@@ -63,10 +52,24 @@
           <%= link_to "Domains", domains_path %>
         </li>
         <% end %>
-    </ul>
+
+        <!-- options for projects -->
+        <li>
+          <a class="dropdown-button" href="#" data-activates="projects_dropdown">Projects
+            <i class="material-icons right">arrow_drop_down</i>
+          </a>
+        </li>
+
+        <!-- options for tasks -->
+        <li>
+          <a class="dropdown-button" href="#" data-activates="tasks_dropdown">Tasks
+            <i class="material-icons right">arrow_drop_down</i>
+          </a>
+        </li>
+
 
     <% if logged_in? %>
-      <ul class="right">
+
         <li>
           <a class="dropdown-button" href="#" data-activates="account_dropdown">
             <%= "Welcome, #{current_user.first_name}" %>

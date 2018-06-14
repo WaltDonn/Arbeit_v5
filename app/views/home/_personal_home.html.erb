@@ -1,32 +1,40 @@
-<h3>Welcome back, <%= current_user.proper_name %></h3>
+<h3>Welcome,
+	<%= current_user.proper_name %></h3>
 
-<p>Below is information on your projects and incomplete tasks for those projects:</p>
+<div class="row">
+	<div class="col s9">
 
-<table border="0" cellspacing="5" cellpadding="5">
-	<tr valign="top">
-		<td>
-			<h3>My Projects</h3>
-			<% if @projects.nil? || @projects.empty? %>
-				<p>You have no projects at this time</p>
-			<% else %>
-				<div id="display_projects">
-					<%= render :partial => 'partials/project_item', :collection => @projects %>
-				</div>
-			<% end %>
-			<p>&nbsp;</p>
-<%= render :partial => "partials/add_new_object", locals: {model_name: 'project'} %>
-		</td>
-		<td width="50">&nbsp;</td>
-		<td>
-			<h3><span id="task_title">Incomplete Tasks</span></h3>
-			<% if @incomplete_tasks.empty? %>
-				<p>You have no incomplete tasks at this time.</p>
-			<% else %>
-				<div id="display_tasks">
-					<%= render :partial => 'partials/task_item', :collection => @incomplete_tasks %>
-				</div>
-			<% end %><p>&nbsp;</p>
-<%= render :partial => "partials/add_new_object", locals: {model_name: 'task'} %>
-		</td>
-	</tr>
-</table>
+<div class="card">
+	<div class="card-content">
+		<span class="card-title">
+			My Projects</span>
+		<% if @projects.nil? || @projects.empty? %>
+			<p>You have no projects at this time</p>
+		<% else %>
+			<div id="display_projects">
+				<%= render :partial => 'partials/project_item', :collection => @projects %>
+			</div>
+		<% end %>
+		<p>&nbsp;</p>
+
+		<%= render :partial => "partials/add_new_object", locals: {model_name: 'project'} %>
+	</div>
+</div>
+</div>
+<div class="col s3">
+<div class="card">
+	<div class="card-content">
+		<span class="card-title">
+			Incomplete Tasks</span>
+		<% if @incomplete_tasks.empty? %>
+			<p>You have no incomplete tasks at this time.</p>
+		<% else %>
+			<div id="display_tasks">
+				<%= render :partial => 'partials/task_item', :collection => @incomplete_tasks %>
+			</div>
+		<% end %>
+		<p>&nbsp;</p>
+		<%= render :partial => "partials/add_new_object", locals: {model_name: 'task'} %>
+	</div>
+</div>
+</div></div>

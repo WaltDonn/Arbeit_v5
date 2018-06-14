@@ -48,14 +48,16 @@ html {
   background-color: black;
   padding-top: 10px;
   padding-bottom: 10px;
-  margin-bottom: 0px;
+  margin-bottom: -1px;
   color: yellow;
   line-height: 2rem;
+  text-align: center;
 }
 
 #footer a {
   color: #ffd600;
 }
+
 
 /********** TABLES ********/
 table.striped > tbody > tr:nth-child(odd) {
@@ -155,6 +157,12 @@ input[type=text].search {
   background-color: #ffd600;
 }
 
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+  position: absolute;
+  left: 60px;
+  opacity: 100;
+}
+
 [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
   border: 2px solid #ffd600;
   background-color: #ffd600;
@@ -227,7 +235,7 @@ li.no_bullet {
   transition: opacity 300ms ease-out;
   background-color: #008CBA;
   border-color: #0078a0;
-  color: #FFFFFF; } 
+  color: #FFFFFF; }
   .alert-box .close {
     right: 0.25rem;
     background: inherit;

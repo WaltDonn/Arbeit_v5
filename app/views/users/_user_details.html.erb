@@ -1,7 +1,7 @@
-<h3>
-  <b>Name</b>: <%= @user.proper_name %>
-</h3><br>
-
+<div class="card">
+	<div class="card-content">
+		<span class="card-title">
+		Account Details</span>
 <p>
   <b>Email</b>: <%= mail_to @user.email, @user.email, encode: "javascript" %>
 </p>
@@ -26,3 +26,4 @@
 <p>
   <b>Active</b>: <%= @user.active ? "Yes" : "No" %>
 </p>
+</div></div>
