@@ -18,8 +18,8 @@
           <td><%= link_to domain.name, domain_path(domain) %></td>
           <td>
             <%= link_to(edit_domain_path(domain), class: 'button tiny radius') do %>
-              <i class="fa fa-times"></i>
-              &nbsp;Edit Domain
+						<i class="material-icons" title="Edit Domain">edit</i>&nbsp;&nbsp;
+
             <% end %>
           </td>
         </tr>
@@ -27,7 +27,7 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @domains, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<%= will_paginate @domains, previous_label: "<i class='material-icons'>navigate_before</i>", next_label: "<i class='material-icons'>navigate_next</i>" %>
 
 
 <p>&nbsp;</p>

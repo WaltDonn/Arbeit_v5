@@ -33,12 +33,10 @@
               </td>
               <td>
                 <%= link_to(new_assignment_path(id: project.id, source: 'project'), class: 'button tiny radius secondary') do %>
-                  <i class="fa fa-user"></i>
-                  &nbsp;Assign Person
+                <i class="material-icons" title="Assign Person">person_add</i>&nbsp;&nbsp;
                 <% end %>
                 <%= link_to(edit_project_path(project, status: 'end'), data: {confirm: "Are you sure you want to end the #{project.name} project today?"}, class: 'button tiny radius alert') do %>
-                  <i class="fa fa-times"></i>
-                  &nbsp;End Project
+                <i class="material-icons" title="End Project">done</i>&nbsp;&nbsp;
                 <% end %>
               </td>
             </tr>
@@ -46,7 +44,7 @@
         <% end %>
       </tbody>
     </table>
-    <%= will_paginate @current_projects, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+    <%= will_paginate @current_projects, previous_label: "<i class='material-icons'>navigate_before</i>", next_label: "<i class='material-icons'>navigate_next</i>" %>
 
     <p>&nbsp;</p>
     <%= render :partial => "partials/add_new_object", locals: {model_name: 'project'} %>

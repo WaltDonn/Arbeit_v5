@@ -1,5 +1,5 @@
 
-<div class="card">
+<div class="card" id="task_details">
 	<div class="card-content">
 		<span class="card-title">
 		Task Details</span>
@@ -30,9 +30,9 @@
 <p>
   <b>Completed</b>: <%= @task.completed ? "Yes" : "No" %>&nbsp;&nbsp;&nbsp;
 	<% if @task.completed %>
-    <%= link_to raw("<i class='fa fa-bolt'></i>&nbsp;&nbsp;Change to incomplete"), incomplete_path(@task.id), :class => 'button tiny radius alert' %>
+		<%= link_to(image_tag("icons/check_green.gif"), toggle_path(@task, status: 'incomplete'), remote: true, method: 'patch') %>
 	<% else %>
-		<%= link_to raw("<i class='fa fa-check'></i>&nbsp;&nbsp;Complete Task"), complete_path(@task.id, :status => 'task_details'), :class => 'button tiny radius' %>
+		<%= link_to(image_tag("icons/check_black.gif"), toggle_path(@task, status: 'complete'), remote: true, method: 'patch') %>
 	<% end %>
 </p>
 

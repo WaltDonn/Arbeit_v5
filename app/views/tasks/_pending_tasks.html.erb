@@ -25,7 +25,7 @@
 					<td><%= link_to task.project.name, project_path(task.project) %></td>
 	        <td><%= task.due_on.strftime("%m/%d/%y") %></td>
 	        <td>
-	          <%= link_to raw("<i class='fa fa-check'></i>&nbsp;&nbsp;Complete Task"), edit_task_path(task, status: 'completed'), :class => 'button radius tiny' %>
+	          <%= link_to raw("<i class='material-icons' title='Complete Task'>done</i>&nbsp;&nbsp;"), edit_task_path(task, status: 'completed'), :class => 'button radius tiny' %>
 	        </td>
 	      </tr>
 			<% end %>
@@ -33,7 +33,7 @@
   </tbody>
 </table>
 
-<%= will_paginate @pending_tasks, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<%= will_paginate @pending_tasks, previous_label: "<i class='material-icons'>navigate_before</i>", next_label: "<i class='material-icons'>navigate_next</i>" %>
 
 <p>&nbsp;</p>
 <%= render :partial => "partials/add_new_object", locals: {model_name: 'task'} %>

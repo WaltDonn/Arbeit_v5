@@ -24,15 +24,15 @@
         </td>
         <td>
           <%= link_to(edit_user_path(user), class: 'button tiny radius') do %>
-            <i class="fa fa-pencil"></i>
-            &nbsp;Edit
+					<i class="material-icons" title="Edit User">edit</i>&nbsp;&nbsp;
+
           <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @users, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<%= will_paginate @users, previous_label: "<i class='material-icons'>navigate_before</i>", next_label: "<i class='material-icons'>navigate_next</i>" %>
 <br />
 
 <p>&nbsp;</p>
