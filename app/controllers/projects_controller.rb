@@ -21,8 +21,7 @@ class ProjectsController < ApplicationController
 
   def edit
     # if shortcut access via projects#index
-    if !params[:status].nil? && params[:status] == 'end'
-      # @project.update_attribute(:end_date, Date.today)
+    if !params[:status].nil? && (@project.manager_id == current_user.id || current_user.role?(:admin)) && params[:status] == 'end'
       @project.end_project_now
       flash[:notice] = "#{@project.name} was ended as of today."
       redirect_to projects_path
@@ -57,7 +56,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    status = @project.destroy
+    status = (@project.manager_id == current_user.id || current_user.role?(:admin)) && @project.destroy
     if status
       flash[:notice] = "Successfully removed #{@project.name} from Arbeit."
     else
