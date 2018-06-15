@@ -1,0 +1,6 @@
+
+
+<%= f.simple_fields_for eval(":#{nested_obj}") do |n| %>
+  <%= render partial: "#{nested_fields}", locals: { f: n} %>
+<% end %>
+<%#= f.link_to_add(raw("Add Task"), :tasks, class: 'btn tiny radius') %>

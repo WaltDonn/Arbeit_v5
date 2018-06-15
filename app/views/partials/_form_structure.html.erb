@@ -10,7 +10,13 @@
               <%= render partial: "#{fields}", locals: { f: f } %>
             </div>
           </div>
+
           <div class="row">
+
+            <% if !(defined?(nested_obj)).nil? && !nested_obj.nil? %>
+                <%= render partial: "partials/nested_form", locals: {nested_obj:nested_obj, nested_fields:nested_fields, f:f} %>
+            <% end %>
+
             <div class="form-actions col s9">
               <%= f.button :submit %>
             </div>

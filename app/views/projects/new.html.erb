@@ -1,4 +1,5 @@
 <%= render partial: "partials/form_structure", locals: {object: @project,
                                                         type_of_form: "New Project",
-                                                        fields: "project_fields"} %>
-
+                                                        fields: "project_fields",
+                                                        nested_obj: "tasks",
+                                                        nested_fields: "tasks/task_nested_fields"} %>

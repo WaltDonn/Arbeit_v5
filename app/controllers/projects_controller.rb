@@ -83,6 +83,6 @@ class ProjectsController < ApplicationController
 
     def project_params
       convert_start_and_end_dates
-      params.require(:project).permit(:name, :description, :start_date, :end_date, :domain_id, :manager_id, tasks_attributes: [:name, :due_string, :priority])
+      params.require(:project).permit(:name, :description, :start_date, :end_date, :domain_id, :manager_id, tasks_attributes: [:created_by, :name, :due_string, :priority])
     end
 end

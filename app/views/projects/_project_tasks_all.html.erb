@@ -1,2 +1,4 @@
 <%= render partial: "project_tasks" %>
-<%= link_to(new_task_path(project_id: @project.id), class: 'btn tiny radius') do %> Add New Task <% end %>
+<div id="new_task_link">
+<%= link_to(new_task_path(project_id: @project.id), class: 'btn tiny radius', remote: true) do %> Add New Task <% end %>
+</div>

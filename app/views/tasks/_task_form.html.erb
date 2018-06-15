@@ -1,0 +1,23 @@
+<div class="card">
+      <div class="card-content">
+        <span class="card-title">Task Form</span>
+        <%= simple_form_for(@task) do |f| %>
+          <%= f.error_notification %>
+          <div class="row">
+            <div class="form-inputs">
+              <%= f.input :name, label: "Task", input_html: { class: "tasks" } %>
+              <%= f.input :due_string, as: :date, label: 'Due', input_html: {class: "avg datepicker"} %>
+              <%= f.input :priority, as: :select ,label: "Priority", collection: Task::PRIORITY_LIST, prompt: "Choose ...", class: "rightspace" %>
+              <%= f.input :created_by, as: :hidden, input_html: { value: current_user.id } %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-actions col s9">
+              <%= f.button :submit %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+<%= link_to 'Back', :back %>

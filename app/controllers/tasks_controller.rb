@@ -79,6 +79,9 @@ class TasksController < ApplicationController
     redirect_to tasks_url
   end
 
+  def add
+  end
+
   def toggle
     if params[:status] == 'complete'
       @task.completed = true
