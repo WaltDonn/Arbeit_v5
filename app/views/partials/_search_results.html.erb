@@ -1,0 +1,12 @@
+<h5>Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'hit') %></h5>
+<p class="supertiny">&nbsp;</p>
+
+<% unless @results.empty? %>
+  <p><em><strong><%= model_name.pluralize %> matching term '<%= @query %>'</strong></em></p>
+  <ul>
+    <% for object in @results do %>
+      <li><%= link_to object.name, eval("#{model_name}_path(object)") %></li>
+    <% end %>
+  </ul>
+  <p class="smtext">&nbsp;</p>
+<% end %>

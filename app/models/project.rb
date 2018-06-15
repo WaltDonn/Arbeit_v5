@@ -35,13 +35,14 @@ class Project < ApplicationRecord
     if errors.present?
       @destroyable = false
       throw(:abort)
-    # else (?)
-      # --- Is there any additional action to be carried out here? ---
+    else
+      end_project_now
     end
   end
-  after_rollback :end_project_now
+  # after_rollback :end_project_now
 
   def end_project_now
+    # return true unless !@destroyable
     remove_incomplete_tasks
     set_all_assignments_to_inactive
     set_project_end_date_to_today

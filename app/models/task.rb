@@ -16,7 +16,7 @@ class Task < ApplicationRecord
   scope :chronological, -> { order("due_on") }
   scope :by_completion_date, -> { order("updated_at DESC") }
   scope :by_priority,   -> { order("priority, due_on") }
-  scope :last_x,          ->(num) { limit(num) }
+  scope :last_x,        ->(num) { limit(num) }
   scope :by_name,       -> { order("name ASC") }
   scope :in_next_days,  ->(days) { where("due_on between ? and ?", Date.today.to_time, (Date.today+days).to_time) }
   scope :upcoming,      -> { where("due_on > ?", Time.now) }
@@ -28,6 +28,7 @@ class Task < ApplicationRecord
   scope :for_project,   ->(project_id) { where(project_id: project_id) }
   scope :for_creator,   ->(user_id) { where(created_by: user_id) }
   scope :for_completer, ->(user_id) { where(completed_by: user_id) }
+  scope :search,        ->(term) { where('name LIKE ?', "#{term}%") }
 
   # Validations
   validates_presence_of :name
@@ -36,7 +37,6 @@ class Task < ApplicationRecord
 
   # Callback
   before_validation :set_due_on_from_string
-  # no change since validation does not rely on falsification
   def set_due_on_from_string
     return true if self.due_string.nil?
     date = Chronic.parse(self.due_string)

@@ -45,6 +45,12 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def search
+    @query = params[:query]
+    @results = User.search(@query)
+    @total_hits = @results.size
+  end
+
   private
     def set_user
       @user = User.find(params[:id])
@@ -52,7 +58,7 @@ class UsersController < ApplicationController
 
     def user_params
       if current_user && current_user.role?(:admin)
-        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role, :active)  
+        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role, :active)
       else
         params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :active)
       end

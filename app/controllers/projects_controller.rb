@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
     # else prepare the dates for display
     @project.start_date = humanize_date @project.start_date
     @project.end_date = humanize_date @project.end_date
-    
+
   end
 
   def create
@@ -47,7 +47,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def update    
+  def update
     if @project.update(project_params)
       flash[:notice] = "#{@project.name} has been updated."
       redirect_to @project
@@ -68,9 +68,8 @@ class ProjectsController < ApplicationController
 
   def search
     @query = params[:query]
-    @projectsReturned = Project.search(@query)
-    @usersReturned = User.search(@query)
-    @total_hits = @projectsReturned.size + @usersReturned.size
+    @results = Project.search(@query)
+    @total_hits = @results.size
   end
 
   private
@@ -85,6 +84,6 @@ class ProjectsController < ApplicationController
 
     def project_params
       convert_start_and_end_dates
-      params.require(:project).permit(:name, :description, :start_date, :end_date, :domain_id, :manager_id, tasks_attributes: [:name, :due_string, :priority])  
+      params.require(:project).permit(:name, :description, :start_date, :end_date, :domain_id, :manager_id, tasks_attributes: [:name, :due_string, :priority])
     end
 end

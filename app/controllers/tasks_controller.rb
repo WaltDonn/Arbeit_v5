@@ -91,6 +91,12 @@ class TasksController < ApplicationController
     @project_tasks = @task.project.tasks.chronological.by_priority.paginate(page: params[:page]).per_page(10)
   end
 
+  def search
+    @query = params[:query]
+    @results = Task.search(@query)
+    @total_hits = @results.size
+  end
+
 
   # ===================================
   # Two new methods to handle changing completed field

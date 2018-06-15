@@ -25,18 +25,15 @@
         <td colspan="2">
 					<% if assignment.active %>
 						<%= link_to(edit_assignment_path(assignment, status: 'deactivate_prj'), class: 'button tiny radius secondary') do %>
-              <i class="fa fa-bolt"></i>
-              &nbsp;Make Inactive
+            <i class="material-icons">pause_circle_outline</i>&nbsp;&nbsp;
             <% end %>
 					<% else %>
 						<%= link_to(edit_assignment_path(assignment, status: 'activate_prj'), class: 'button tiny radius success') do %>
-            <i class="fa fa-bolt"></i>
-              &nbsp;Make Active&nbsp;&nbsp;
+              <i class="material-icons">pause_circle_filled</i>&nbsp;&nbsp;
             <% end %>
 					<% end %>
 					<%= link_to(assignment_path(assignment), method: 'delete', data: { confirm: "Are you sure you want to destroy this assignment?" }, class: 'button tiny radius alert') do %>
-            <i class="fa fa-times"></i>
-            &nbsp;Destroy Assignment
+           <i class="material-icons">delete</i>
           <% end %>
         </td>
       </tr>
