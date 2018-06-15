@@ -14,6 +14,7 @@ class User < ApplicationRecord
   scope :alphabetical, -> { order('last_name, first_name') }
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
+  scope :search, ->(term) { where('first_name LIKE ? OR last_name LIKE ?', "#{term}%", "#{term}%") }
 
   # Validations
   # -----------------------------

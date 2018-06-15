@@ -66,6 +66,13 @@ class ProjectsController < ApplicationController
     redirect_to projects_url
   end
 
+  def search
+    @query = params[:query]
+    @projectsReturned = Project.search(@query)
+    @usersReturned = User.search(@query)
+    @total_hits = @projectsReturned.size + @usersReturned.size
+  end
+
   private
     def convert_start_and_end_dates
       params[:project][:start_date] = convert_to_date(params[:project][:start_date]) unless params[:project][:start_date].blank?
