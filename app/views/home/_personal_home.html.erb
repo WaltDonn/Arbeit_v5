@@ -30,7 +30,16 @@
 			<p>You have no incomplete tasks at this time.</p>
 		<% else %>
 			<div id="display_tasks">
-				<%= render :partial => 'partials/task_item', :collection => @incomplete_tasks %>
+				<table class="table">
+				  <thead>
+				    <tr><th>Task</th></tr>
+				  </thead>
+				  <tbody>
+						<%= render :partial => 'partials/task_item', :collection => @incomplete_tasks %>
+					</tbody>
+					</table>
+			<%= will_paginate @incomplete_tasks, previous_label: "<i class='material-icons'>navigate_before</i>", next_label: "<i class='material-icons'>navigate_next</i>" %>
+
 			</div>
 		<% end %>
 		<p>&nbsp;</p>
