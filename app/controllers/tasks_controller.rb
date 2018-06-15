@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   # before_action :set_task, only: [:show, :edit, :update, :destroy, :ajax_complete, :ajax_incomplete, :complete, :incomplete]
-  before_action :set_task, except: [:index, :new, :create, :convert_due_on, :task_params, :set_task]
+  before_action :set_task, except: [:index, :new, :create, :convert_due_on, :task_params, :set_task, :search]
   before_action :check_login
   # authorize_resource
 
