@@ -95,6 +95,11 @@ class TaskTest < ActiveSupport::TestCase
       assert_equal 1, Task.for_completer(@ted.id).size
       assert_equal 2, Task.for_completer(@fred.id).size
     end
+
+    should "have a scope that returns Tasks where part of the task name matches the search query" do
+      assert_equal 2, Task.search("mod").size
+      # MODify controller & data MODelling
+    end
     
     should "be able to process the due string into datetime or return error" do
       good_task = FactoryBot.build(:task, name: 'Storyboarding', project: @arbeit, due_on: 1.day.from_now, due_string: "tomorrow", creator: @fred, completer: nil, completed: false)

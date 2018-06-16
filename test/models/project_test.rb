@@ -58,6 +58,11 @@ class ProjectTest < ActiveSupport::TestCase
     should "have a scope to return all projects with a similar name" do
       assert_equal "ChoreTracker", Project.for_name("chore").first.name
     end
+
+    # I guess the for_name scope works similarly to Search?
+    should "have a scope that searches for Projects where the names begin with the search query" do
+      assert_equal 1, Project.search("arb").size
+    end
     
     should "check to make sure the end date is after the start date" do
       @bad_project = FactoryBot.build(:project, name: 'BogusProject', domain: @software, manager: @ed, start_date: 9.days.ago.to_date, end_date: 10.days.ago.to_date)

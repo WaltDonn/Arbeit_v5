@@ -64,6 +64,12 @@ class UserTest < ActiveSupport::TestCase
     should "have a scope to select only inactive domains" do
       assert_equal ["Ned"], User.inactive.alphabetical.map(&:first_name)
     end 
+
+    # test 'search' scope
+    should "show that search for User by either (part of) first name or last name works" do
+      assert_equal 4, User.search("Gru").size
+      assert_equal 1, User.search("Ed").size
+    end
     
     should "require users to have unique emails" do
       bad_user = FactoryBot.build(:user, first_name: "Sed", email: "fred@example.com")
