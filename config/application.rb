@@ -15,5 +15,7 @@ module ArbeitV5
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths += Dir["#{config.root}/lib/**/"]  # include all subdirectories
+    config.action_view.embed_authenticity_token_in_remote_forms = false
+    config.force_ssl = false
   end
 end

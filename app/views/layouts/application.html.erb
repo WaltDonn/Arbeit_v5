@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Arbeit</title>
-    <%= csrf_meta_tags %>
+    <title>Arbeit - DVRA</title>
     <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
     <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Bitter|Josefin+Sans|Nunito|Varela+Round" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= csrf_meta_tags %> <%# I don't know what this is so I commented it out... %>
   </head>
 
   <body>
-    <!-- Partials for the topbar and navigation -->
     <%= render :partial => "partials/nav" %>
 
     <div class="container">
       <div class="row">
         <div class="col s12">
-          <!-- Flash messages appear here -->
           <%= render :partial => "partials/flash" %>
-          <!-- MAIN CONTENT OF TEMPLATE GOES HERE -->
           <%= yield %>
         </div>
       </div>

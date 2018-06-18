@@ -28,7 +28,7 @@ class Task < ApplicationRecord
   scope :for_project,   ->(project_id) { where(project_id: project_id) }
   scope :for_creator,   ->(user_id) { where(created_by: user_id) }
   scope :for_completer, ->(user_id) { where(completed_by: user_id) }
-  scope :search,        ->(term) { where('name LIKE ?', "%#{term}%") }
+  scope :search,        ->(term) { find_by_sql(["SELECT * FROM tasks WHERE name LIKE ?", "#{term}%"]) }
 
   # Validations
   validates_presence_of :name

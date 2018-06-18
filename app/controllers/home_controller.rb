@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def home
     if logged_in?
+      flash_codes
       # get my projects
       @projects = current_user.projects.alphabetical.to_a
       project_ids = @projects.map(&:id)

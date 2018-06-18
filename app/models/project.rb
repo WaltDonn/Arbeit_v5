@@ -21,7 +21,7 @@ class Project < ApplicationRecord
   scope :current,      -> { where("start_date <= ? and (end_date > ? or end_date is null)", Date.today, Date.today) }
   scope :past,         -> { where("end_date <= ?", Date.today) }
   scope :for_name,     ->(name) { where("name LIKE ?", name + "%") }
-  scope :search, ->(term) { where('name LIKE ?', "#{term}%") }
+  scope :search,        ->(term) { find_by_sql(["SELECT * FROM projects WHERE name LIKE ?", "#{term}%"]) }
 
   # Validations
   validates_presence_of :name

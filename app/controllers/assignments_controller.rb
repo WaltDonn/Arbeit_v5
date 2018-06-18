@@ -16,7 +16,7 @@ class AssignmentsController < ApplicationController
     @assignment.project_id = params[:id] unless params[:id].nil?
   end
 
-  def edit    
+  def edit
     # Handle shortcut deactivations
     unless params[:status].nil?
       if params[:status].match(/deactivate/) # == 'deactivate_prj' || params[:status] == 'deactivate_asgn'
@@ -64,6 +64,6 @@ class AssignmentsController < ApplicationController
     end
 
     def assignment_params
-      params.require(:assignment).permit(:project_id, :user_id, :active)  
+      params.require(:assignment).permit(:project_id, :user_id, :active)
     end
 end
