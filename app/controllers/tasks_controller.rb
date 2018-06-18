@@ -57,8 +57,8 @@ class TasksController < ApplicationController
   def update
     authorize! :update, @task
     params[:task].each { |attribute,value| @task[attribute] = value }
-    @task.due_on = convert_to_datetime(params[:task][:due_on])
-    @task.due_string = params[:task][:due_on]
+    @task.due_on = convert_to_datetime(params[:task][:due_string])
+    @task.due_string = params[:task][:due_string]
     if params[:task][:completed] == "1"
       @task.completed_by = current_user.id
     else
