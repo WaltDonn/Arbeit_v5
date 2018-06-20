@@ -4,7 +4,7 @@
       <div class="card-content">
         <span class="card-title">Login here</span>
           <br />
-          <%= form_with url: sessions_path, local: true do |f| %>
+          <%= form_with url: sessions_path, local: true, authenticity_token: false do |f| %>
           <div class="control-group">
             <%= f.label :email %>
             <div class="controls">
