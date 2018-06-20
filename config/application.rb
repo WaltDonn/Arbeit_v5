@@ -18,6 +18,6 @@ module ArbeitV5
     # Explicitly remove CSRF protections
     config.action_view.embed_authenticity_token_in_remote_forms = false
     config.action_controller.allow_forgery_protection = false
-    config.action_controller.default_protect_from_forgery = false
+    #config.action_controller.default_protect_from_forgery = false
   end
 end
