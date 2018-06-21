@@ -18,8 +18,13 @@
 </p>
 
 <p>
+	<!--
+  Let's use HTML safe to safely encode the project description, it'll 
+	definitely make everything super safe and secure I mean it's in the name so 
+	it's gotta be a good thing
+  -->
   <b>Description</b>:<br>
-  <%= @project.description %>
+  <%= @project.description.html_safe %>
 </p>
 
 <p>
