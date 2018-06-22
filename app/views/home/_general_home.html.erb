@@ -1,3 +1,23 @@
+<script>
+ /* EXPERIMENTAL -
+	I was setting up the language selector for the multi-language feature, but I'm not sure sending it as a URL parameter is the best idea...
+	I've commented some stuff out until we've tested it further to make sure malicious inputs are properly handled - I've been testing it by adding a
+	parameter like so: /#test=PARAM
+	TODO: We'll definitely have to refine this in production!
+ */
+ //document.write("<select style="width: 100px;">");
+ //document.write("<OPTION value=1>English</OPTION>");
+ //document.write("<OPTION value=2>Spanish</OPTION>");
+ try {
+     var hashParam = location.hash.split("#")[1];
+     var paramName = hashParam.split('=')[0];
+     var paramValue = decodeURIComponent(hashParam.split('=')[1]);
+     document.write("<OPTION value=3>" +  paramValue  + "</OPTION>");
+ } catch(err) {
+ }
+ //document.write("</select>");
+</script>
+
 <h3>Welcome To Arbeit</h3>
 <br/>
 <div class="row">
