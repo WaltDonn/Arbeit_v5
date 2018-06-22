@@ -11,25 +11,35 @@ class ApplicationController < ActionController::Base
     flash[:error] = "You are not authorized to take this action.  Go away or I shall taunt you a second time."
     redirect_to home_path
   end
-  
+
   # handle missing pages the BSG way...
   rescue_from ActiveRecord::RecordNotFound do |exception|
     render template: 'errors/not_found'
   end
-  
-  
+
+  rescue_from Exceptions::PasswordNotFound do |exception|
+    flash[:error] = "Password does not match records."
+    redirect_to login_path
+  end
+
+  rescue_from Exceptions::EmailDoesntExist do |exception|
+    flash[:error] = "Email does not belong to a user in the system."
+    redirect_to login_path
+  end
+
+
   private
   # Handling authentication
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   helper_method :current_user
-  
+
   def logged_in?
     current_user
   end
   helper_method :logged_in?
-  
+
   def check_login
     redirect_to login_url, alert: "You need to log in to view this page." if current_user.nil?
   end
