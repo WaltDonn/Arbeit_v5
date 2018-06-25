@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  require 'uri'
   # before_action :set_task, only: [:show, :edit, :update, :destroy, :ajax_complete, :ajax_incomplete, :complete, :incomplete]
   before_action :set_task, except: [:index, :new, :create, :convert_due_on, :task_params, :set_task, :search]
   before_action :check_login
@@ -106,13 +107,12 @@ class TasksController < ApplicationController
     uploader = SpecsheetUploader.new
     document = params[:task][:specsheet]
     uploader.store!(document)
-    @task.specsheet_name = params[:task][:specsheet].original_filename
+    @task.specsheet_name = params[:task][:specsheet].original_filename.gsub!(/[() ]/, "_")
     @task.save!
   end
 
   def download_specsheet
-    send_file(@task.specsheet.path, filename: @task.specsheet_name, type: "application/pdf")
-    redirect_to task_path(@task)
+    send_file(Rails.root + "public/uploads/#{@task.specsheet_name}", filename: @task.specsheet_name, type: "application/pdf", disposition: "inline")
   end
 
 

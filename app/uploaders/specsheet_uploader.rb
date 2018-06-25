@@ -5,6 +5,7 @@ class SpecsheetUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   storage :file
 
+  # Override the directory where uploaded files will be stored.
   CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
 
   # Override the directory where uploaded files will be stored.
@@ -12,12 +13,14 @@ class SpecsheetUploader < CarrierWave::Uploader::Base
     "#{Rails.root}/public/uploads/"
   end
 
+  # Override the directory where cached files will be stored.
   def cache_dir
     "#{Rails.root}/public/uploads/cache"
   end
 
+  # Override the default filename.
   def filename
-    original_filename
+    @original_filename
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
