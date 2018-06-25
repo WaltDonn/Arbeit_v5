@@ -10,6 +10,8 @@ class Task < ApplicationRecord
   delegate :proper_name, to: :creator, prefix: true
   delegate :proper_name, to: :completer, prefix: true
 
+  mount_uploader :specsheet, SpecsheetUploader
+
   PRIORITY_LIST = [ ["High", 1], ["Med", 2], ["Low", 3], ["Who cares?", 4] ]
 
   # Named scopes
