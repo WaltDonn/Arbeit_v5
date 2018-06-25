@@ -132,6 +132,17 @@ class TasksController < ApplicationController
     end
   end
 
+  def upload
+    file = params[:tasks][:upload]
+    if file
+      flash[:success] = "File Successfully Uploaded!"
+      Tasks.save(file, params[:tasks][:backup])
+    else
+      flash[:error] = "Something went wrong"
+    end
+    redirect_to user_benefit_forms_path(:user_id => current_user.id)
+  end
+
   private
     def convert_due_on
       params[:task][:due_on] = convert_to_date(params[:task][:due_on]) unless params[:task][:due_on].blank?
