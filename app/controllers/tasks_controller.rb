@@ -135,7 +135,7 @@ class TasksController < ApplicationController
     end
   end
 
-  def upload_specsheet(file, backup=false)
+  def upload_specsheet(file, backup)
     if file
       Task.save(file, backup)
     else
