@@ -40,6 +40,8 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     authorize! :create, @task
+    upload_specsheet(params[:task][:specsheet], true)
+    @task.specsheet = params[:task][:specsheet].original_filename unless params[:task][:specsheet].nil?
     @task.created_by = current_user.id
     if @task.save
       # if saved to database
@@ -56,7 +58,9 @@ class TasksController < ApplicationController
 
   def update
     authorize! :update, @task
+    upload_specsheet(params[:task][:specsheet], true)
     params[:task].each { |attribute,value| @task[attribute] = value }
+    @task.specsheet = params[:task][:specsheet].original_filename unless params[:task][:specsheet].nil?
     @task.due_on = convert_to_datetime(params[:task][:due_string])
     @task.due_string = params[:task][:due_string]
     if params[:task][:completed] == "1"
@@ -107,7 +111,6 @@ class TasksController < ApplicationController
     # set completed and completed_by fields
     @task.completed = true
     @task.completed_by = current_user.id
-
     if @task.save!
       flash[:notice] = 'Task was marked as completed.'
       if params[:status] == "task_details"
@@ -132,15 +135,16 @@ class TasksController < ApplicationController
     end
   end
 
-  def upload
-    file = params[:tasks][:upload]
+  def upload_specsheet(file, backup=false)
     if file
-      flash[:success] = "File Successfully Uploaded!"
-      Tasks.save(file, params[:tasks][:backup])
+      Task.save(file, backup)
     else
-      flash[:error] = "Something went wrong"
+      flash[:error] = "Something went wrong with file upload"
     end
-    redirect_to user_benefit_forms_path(:user_id => current_user.id)
+  end
+
+  def download_specsheet
+    send_file(Rails.root + "public/uploads/#{@task.specsheet}", filename: @task.specsheet, type: "application/pdf", disposition: "inline")
   end
 
   private
@@ -154,6 +158,6 @@ class TasksController < ApplicationController
 
     def task_params
       #convert_due_on
-      params.require(:task).permit(:name, :due_on, :due_string, :project_id, :completed, :completed_by, :created_by, :priority)
+      params.require(:task).permit(:name, :due_on, :due_string, :project_id, :completed, :completed_by, :created_by, :priority, :specsheet)
     end
 end

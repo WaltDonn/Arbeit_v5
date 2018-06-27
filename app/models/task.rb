@@ -47,7 +47,7 @@ class Task < ApplicationRecord
   end
 
   def self.save(file, backup=false)
-   data_path = Rails.root.join("public", "uploads")
+   data_path = "#{Rails.root}/public/uploads"
    full_file_name = "#{data_path}/#{file.original_filename}"
    f = File.open(full_file_name, "wb+")
    f.write(file.read)
@@ -57,7 +57,7 @@ class Task < ApplicationRecord
 
  def self.make_backup(file, data_path, full_file_name)
     if File.exists?(full_file_name)
-      silence_streams(STDERR) { system("cp #{full_file_name} #{data_path}/bak#{Time.zone.now.to_i}_#{file.original_filename}") }
+      silence_streams(STDERR) { system("cp #{full_file_name} #{data_path}/cache/#{Time.zone.now.to_i}_#{file.original_filename}") }
     end
  end
 

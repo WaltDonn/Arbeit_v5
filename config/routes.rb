@@ -33,7 +33,8 @@ Rails.application.routes.draw do
   get 'userSearch', to: 'users#search', as: :user_search
   get 'taskSearch', to: 'tasks#search', as: :task_search
 
-  post "upload", to: "tasks#upload", as: upload_path
+  post "upload", to: "tasks#upload", as: :upload_path
+  get "tasks/:id/specsheet", to: 'tasks#download_specsheet', as: :download_specsheet
 
   # Last route in routes.rb that essentially handles routing errors
   get '*a', to: 'errors#routing'
