@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  include FilterHelper
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :check_login
   authorize_resource
