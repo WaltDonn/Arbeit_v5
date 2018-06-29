@@ -21,6 +21,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.first_name = user_sanitize(@user.first_name)
+    @user.last_name = user_sanitize(@user.last_name)
+    @user.username = user_sanitize(@user.username)
+    @user.password = user_sanitize(@user.password)
+    @user.password_confirmation = user_sanitize(@user.password_confirmation)
     if @user.save
       session[:user_id] = @user.id
       redirect_to home_path, notice: "Thank you for signing up!"
@@ -46,7 +51,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @query = params[:query]
+    @query = filter_search(params[:query])
     @results = User.search(@query)
     @total_hits = @results.size
   end

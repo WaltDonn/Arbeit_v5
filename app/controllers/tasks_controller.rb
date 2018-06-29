@@ -95,7 +95,7 @@ class TasksController < ApplicationController
   end
 
   def search
-    @query = params[:query]
+    @query = filter_search(params[:query])
     @results = Task.search(@query)
     @total_hits = @results.size
   end

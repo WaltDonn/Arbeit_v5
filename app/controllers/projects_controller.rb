@@ -66,7 +66,7 @@ class ProjectsController < ApplicationController
   end
 
   def search
-    @query = params[:query]
+    @query = filter_search(params[:query])
     @results = Project.search(@query)
     @total_hits = @results.size
   end
