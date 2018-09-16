@@ -46,6 +46,8 @@ gem 'vuejs-rails', '2.5.13'
 gem 'materialize-sass', '0.100.2'
 gem 'simple_form', '3.5.0'
 gem 'materialize-form', '1.0.8'
+# use CarrierWave for file uploads
+gem 'carrierwave', '~> 1.0'
 
 
 # Gems used only in testing
