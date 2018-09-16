@@ -42,4 +42,9 @@
 	</p>
 <% end %>
 
+<p>
+	<b> Specsheet: </b>
+	<%= !@task.specsheet_name.blank? ? link_to(@task.specsheet_name, download_specsheet_path) : "N/A" %>
+</p>
+
 </div></div>
